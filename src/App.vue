@@ -2,8 +2,12 @@
   <div id="app">
     <div class="container">
       <h1>Top 100 Albuns</h1>
+      <searchBar @search-submitted="filter"></searchBar>
       <div class="flex-wrap">
-      <cardAlbum v-for="album in albuns" :key="album.id" :album="album"></cardAlbum>
+        <cardAlbum v-for="album in albuns"
+          :key="album.id"
+          :album="album">
+        </cardAlbum>
       </div>
     </div>
   </div>
@@ -11,11 +15,13 @@
 
 <script>
 import cardAlbum from './components/cardAlbum.vue'
+import searchBar from './components/searchBar.vue'
 
 export default {
   name: 'App',
   components: {
-    cardAlbum
+    cardAlbum,
+    searchBar
     // register components here later
   },
   data: () => ({
@@ -49,7 +55,18 @@ export default {
         coverURL: 'https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/9c/fe/5e/9cfe5eec-89b5-240f-5229-59244360e89d/8804775250422_Cover.jpg/170x170bb.png'
       },
     ]
-  })
+  }),
+  methods: {
+    filter(content) {
+      if (!content)
+        return this.albuns;
+      return this.albuns.filter(album => {
+        return album.title.toLowerCase().includes(content.toLowerCase()) || album.artist.toLowerCase().includes(content.toLowerCase())
+      })
+    }
+  }
+  // TODO: Change how data is pushed into albuns, check life cycle methods
+  // How to use filter in a smart way? Should I copy data (original and filtered)? Add a display none?
 }
 </script>
 
