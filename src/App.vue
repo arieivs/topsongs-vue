@@ -3,13 +3,13 @@
     <div class="container">
       <h1>Top 100 Albuns</h1>
       <div class="card">
-        <a :href="album.url" target="_blank" rel="noreferrer" class="link">
+        <a :href="album.url" target="_blank" rel="noreferrer" class="card-link">
           <div class="card-cover">
             <img :src="album.coverURL" alt="" />
-            <button class="btn-all btn-prim play">Play</button>
+            <button class="btn-all btn-prim card-btn-play">Play</button>
           </div>
-          <h2 class="title">{{ album.title }}</h2>
-          <p class="artist">{{ album.artist }}</p>
+          <h2 class="card-title">{{ album.title }}</h2>
+          <p class="card-artist">{{ album.artist }}</p>
         </a>
       </div>
     </div>
@@ -36,12 +36,12 @@ export default {
 </script>
 
 <style>
-#app {
+/*#app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-}
+}*/
 </style>
