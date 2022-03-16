@@ -28,6 +28,7 @@
 
 .card-link:hover .card-btn-play {
   opacity: 1;
+  cursor: pointer;
 }
 
 .card-title {
