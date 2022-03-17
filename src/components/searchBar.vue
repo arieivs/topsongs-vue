@@ -1,7 +1,7 @@
 <template>
   <!-- <form className="d-flex flex-grow-1"> -->
   <form @submit.prevent="onSubmit">
-    <input v-model="content" placeholder="Search for an Album or Artist" class="search-bar">
+    <input @keyup="onSubmit" v-model="content" placeholder="Search for an Album or Artist" class="search-bar">
     <input type="submit" value="Search" class="btn-all btn-prim">
   </form>
 </template>
