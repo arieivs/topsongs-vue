@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div v-show="album.display" class="card">
     <a :href="album.url" target="_blank" rel="noreferrer" class="card-link">
       <div class="card-cover">
         <img :src="album.coverURL" alt="" />
