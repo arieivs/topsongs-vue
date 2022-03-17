@@ -2,6 +2,7 @@
   <div class="container">
     <h1>Top 100 Albuns</h1>
     <searchBar @search-submitted="filter"></searchBar>
+    <p v-if="!albuns.length" style="text-align:center;">Getting some coffee, please wait...</p>
     <div class="flex-wrap">
       <cardAlbum v-for="album in albuns"
         :key="album.id"
