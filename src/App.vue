@@ -55,6 +55,20 @@ export default {
       }
     }
   }
+  // computed: {
+  //   albunsDisplay: {
+  //     get: function () {
+  //       return this.albuns
+  //     },
+  //     set: function (searchContent) {
+  //       if (!searchContent)
+  //         return this.albuns
+  //       return this.albuns.map(album => {
+  //         return album.title.toLowerCase().includes(searchContent.toLowerCase()) || album.artist.toLowerCase().includes(searchContent.toLowerCase())
+  //       })
+  //     }
+  //   }
+  // }
 }
 </script>
 
