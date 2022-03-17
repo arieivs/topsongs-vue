@@ -43,3 +43,21 @@ body {
   display: flex;
   flex-wrap: wrap;
 }
+
+@media (max-width: 1040px) {
+  .container {
+    max-width: 800px;
+  }
+}
+
+@media (max-width: 840px) {
+  .container {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 540px) {
+  .container {
+    max-width: 310px;
+  }
+}

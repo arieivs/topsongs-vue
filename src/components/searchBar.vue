@@ -30,7 +30,6 @@ export default {
   }
 
   .search-bar {
-    min-width: 256px;
     padding: 10px 22px;
     background-color: #222451;
     color: #8D91B4;
