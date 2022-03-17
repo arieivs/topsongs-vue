@@ -1,14 +1,12 @@
 <template>
-  <div id="app">
-    <div class="container">
-      <h1>Top 100 Albuns</h1>
-      <searchBar @search-submitted="filter"></searchBar>
-      <div class="flex-wrap">
-        <cardAlbum v-for="album in albuns"
-          :key="album.id"
-          :album="album">
-        </cardAlbum>
-      </div>
+  <div class="container">
+    <h1>Top 100 Albuns</h1>
+    <searchBar @search-submitted="filter"></searchBar>
+    <div class="flex-wrap">
+      <cardAlbum v-for="album in albuns"
+        :key="album.id"
+        :album="album">
+      </cardAlbum>
     </div>
   </div>
 </template>
@@ -56,6 +54,21 @@ export default {
       },
     ]
   }),
+  created: function () {
+    fetch('https://itunes.apple.com/us/rss/topalbums/limit=100/json')
+      .then(response => response.json())
+      .then(data => {
+        this.albuns = data.feed.entry.map(entry => {
+          return {
+            id: entry.id.attributes['im:id'],
+            title: entry['im:name'].label,
+            artist: entry['im:artist'].label,
+            url: entry.id.label,
+            coverURL: entry['im:image'][2].label
+          }
+        })
+      })
+  },
   methods: {
     filter(content) {
       if (!content)
