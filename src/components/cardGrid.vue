@@ -15,7 +15,7 @@
 import buttonPrimary from './buttonPrimary.vue'
 
 export default {
-  name: 'cardAlbum',
+  name: 'cardGrid',
   components: {
     buttonPrimary
   },

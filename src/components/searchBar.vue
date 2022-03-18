@@ -26,7 +26,7 @@ export default {
   form {
     display: flex;
     max-width: 750px;
-    margin: 50px auto;
+    margin: 40px auto;
   }
 
   .search-bar {

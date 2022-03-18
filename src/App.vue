@@ -3,27 +3,34 @@
     <h1>Top 100 Albuns</h1>
     <searchBar @search-submitted="filter"></searchBar>
     <p v-if="!albuns.length" style="text-align:center;">Getting some coffee, please wait...</p>
+    <div style="text-align:center; margin-bottom: 20px;">
+      <!-- TODO Turn these buttons into a nice togle -->
+      <button @click="displayStyle='cardGrid'" class="btn-all btn-prim"><font-awesome-icon icon="fa-solid fa-border-all" size="xl"/></button>
+      <button @click="displayStyle='cardList'" class="btn-all btn-prim"><font-awesome-icon icon="fa-solid fa-list" size="xl"/></button>
+    </div>
     <div class="flex-wrap">
-      <cardAlbum v-for="album in albuns"
+      <component :is="displayStyle"
+        v-for="album in albuns"
         :key="album.id"
         :album="album">
-      </cardAlbum>
+      </component>
     </div>
   </div>
 </template>
 
 <script>
-import cardAlbum from './components/cardAlbum.vue'
+import cardGrid from './components/cardGrid.vue'
 import searchBar from './components/searchBar.vue'
 
 export default {
   name: 'App',
   components: {
-    cardAlbum,
+    cardGrid,
     searchBar
   },
   data: () => ({
-    albuns: []
+    albuns: [],
+    displayStyle: 'cardGrid'
   }),
   created: function () {
     fetch('https://itunes.apple.com/us/rss/topalbums/limit=100/json')
