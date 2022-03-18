@@ -20,7 +20,7 @@
   .btn-prim {
     padding: 10px 22px;
     background: linear-gradient(to left, #5717a8, #a340c2);
-    color: #fff;
+    color: #fff !important;
   }
 
   .btn-prim:hover {
