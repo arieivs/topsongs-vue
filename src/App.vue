@@ -4,33 +4,32 @@
     <searchBar @search-submitted="filter"></searchBar>
     <p v-if="!albuns.length" style="text-align:center;">Getting some coffee, please wait...</p>
     <div style="text-align:center; margin-bottom: 20px;">
-      <!-- TODO Turn these buttons into a nice togle -->
-      <button @click="displayStyle='cardGrid'" class="btn-all btn-prim"><font-awesome-icon icon="fa-solid fa-border-all" size="xl"/></button>
-      <button @click="displayStyle='cardList'" class="btn-all btn-prim"><font-awesome-icon icon="fa-solid fa-list" size="xl"/></button>
+      <!-- TODO Turn these buttons into a nice toggle; put it in a component? -->
+      <button @click="displayStyle='cardsGrid'" class="btn-all btn-prim"><font-awesome-icon icon="fa-solid fa-border-all" size="xl"/></button>
+      <button @click="displayStyle='cardsList'" class="btn-all btn-prim"><font-awesome-icon icon="fa-solid fa-list" size="xl"/></button>
     </div>
-    <div class="flex-wrap">
-      <component :is="displayStyle"
-        v-for="album in albuns"
-        :key="album.id"
-        :album="album">
-      </component>
-    </div>
+
+    <component :is="displayStyle"
+      :albuns="albuns">
+    </component>
   </div>
 </template>
 
 <script>
-import cardGrid from './components/cardGrid.vue'
 import searchBar from './components/searchBar.vue'
+import cardsGrid from './components/cardsGrid.vue'
+import cardsList from './components/cardsList.vue'
 
 export default {
   name: 'App',
   components: {
-    cardGrid,
-    searchBar
+    searchBar,
+    cardsGrid,
+    cardsList
   },
   data: () => ({
     albuns: [],
-    displayStyle: 'cardGrid'
+    displayStyle: 'cardsGrid'
   }),
   created: function () {
     fetch('https://itunes.apple.com/us/rss/topalbums/limit=100/json')

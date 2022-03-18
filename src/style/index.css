@@ -36,6 +36,11 @@ body {
   margin: 0 auto;
 }
 
+.small-container {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
 .flex-wrap {
   display: flex;
   flex-wrap: wrap;
