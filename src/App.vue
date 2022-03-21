@@ -7,7 +7,6 @@
       <button @click="displayStyle='cardsGrid'" :class="['btn-all', { 'btn-prim': displayStyle === 'cardsGrid' }]"><font-awesome-icon icon="fa-solid fa-border-all" size="xl"/></button>
       <button @click="displayStyle='cardsList'" :class="['btn-all', { 'btn-prim': displayStyle === 'cardsList' }]"><font-awesome-icon icon="fa-solid fa-list" size="xl"/></button>
     </div>
-
     <component :is="displayStyle"
       :albuns="albuns">
     </component>
